@@ -1,0 +1,723 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical 9</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .header {
+            position: fixed;
+            width: 100%;
+            height: 70px;
+            background-color: grey;
+            padding: 0 20px;
+            z-index: 10;
+        }
+        
+        .menu li {
+            display: inline-block;
+            line-height: 70px;
+        }
+        
+        .header .menu {
+            list-style: none;
+            float: right;
+        }
+        
+        .menu li a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            padding: 10px 30px;
+            transition: .4s;
+        }
+        
+        .menu li a:hover {
+            background-color: whitesmoke;
+            color: black;
+        }
+        
+        .show-btn,
+        .hide-btn {
+            font-size: 30px;
+            color: white;
+            line-height: 70px;
+            display: none;
+        }
+        
+        .show-btn {
+            float: right;
+        }
+        
+        #chk {
+            position: absolute;
+            visibility: hidden;
+            z-index: -20;
+        }
+        
+        #top-section {
+            padding: 100px 20px 20px;
+        }
+        
+        #top-section img {
+            margin-right: 20px;
+            width: 100%;
+        }
+        
+        #top-section h1 {
+            position: absolute;
+            font-size: 4.5rem;
+            color: whitesmoke;
+            left: 60px;
+            top: 120px;
+        }
+        
+        #team {
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .heading {
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            padding-top: 60px;
+        }
+        
+        .circle img {
+            height: 21%;
+            float: left;
+            width: 21%;
+            margin-left: 40px;
+            margin-top: 20px;
+            padding: 7px;
+            border-radius: 100%;
+        }
+        
+        #about {
+            padding: 20px;
+        }
+        
+        .main-content {
+            float: left;
+            width: 49%;
+            height: 500px;
+            margin-top: 20px;
+            margin-right: 20px;
+            background-color: lightslategray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            overflow: hidden;
+        }
+        
+        .article img {
+            width: 49%;
+            height: 153px;
+            margin-top: 20px;
+        }
+        
+        .article h1 {
+            padding: 25px;
+            position: absolute;
+            right: 20%;
+        }
+        
+        .main-content p {
+            padding: 10px;
+            line-height: 1.5;
+        }
+        
+        #about:after,
+        #team:after,
+        #tech:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        
+        h4 {
+            text-align: center;
+            color: #092532;
+            font-size: 15px;
+            margin: 10px 0;
+        }
+        
+        .box_img {
+            width: 100%;
+            border-radius: 9px;
+            height: 170px;
+        }
+        
+        .cards {
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+        
+        .box {
+            /* height: 420px; */
+            width: 300px;
+            background-color: lightblue;
+            margin-left: 30px;
+            padding: 15px;
+            float: left;
+            border-radius: 9px;
+        }
+        
+        .box_a {
+            color: white;
+            background-color: #cf1b1b;
+            padding: 12px;
+            text-align: center;
+            border-radius: 9px;
+        }
+        
+        .box_a:hover {
+            background-color: #006a71;
+        }
+        
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .box_para {
+            text-align: justify;
+            padding: 0 10px 10px;
+            line-height: 25px;
+        }
+        
+        .bottom-container {
+            display: block;
+            background-color: purple;
+            text-align: center;
+            padding: 50px;
+            margin: 0 20px;
+        }
+        
+        .bottom-container p {
+            display: inline;
+        }
+        
+        .bottom-container a {
+            margin: 30px 10px 10px;
+        }
+        
+        .bottom-container a:hover {
+            color: yellow;
+        }
+        
+        .a1 {
+            display: block;
+        }
+        
+        @media (min-width: 801px) and (max-width: 1200px) {
+            #top-section {
+                padding: 85px 20px 0;
+            }
+            #top-section h1 {
+                position: absolute;
+                font-size: 4rem;
+                color: whitesmoke;
+                left: 50px;
+                top: 105px;
+            }
+            #team {
+                margin: 20px;
+            }
+            .heading {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 50px;
+            }
+            .circle-outer {
+                margin: auto;
+            }
+            .circle img {
+                float: left;
+                height: 32%;
+                width: 32%;
+                margin-left: 6rem;
+                margin-top: 40px;
+                padding: 7px;
+                border-radius: 100%;
+            }
+            #about {
+                padding: 20px;
+            }
+            .main-content {
+                float: left;
+                width: 48%;
+                height: 500px;
+                margin-top: 20px;
+                margin-right: 20px;
+                background-color: lightslategray;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-size: 20px;
+                overflow: hidden;
+            }
+            .article img {
+                width: 49%;
+                height: 153px;
+                margin-top: 20px;
+                justify-content: center;
+                align-items: center;
+            }
+            .article h1 {
+                position: absolute;
+                right: 18%;
+                padding: 25px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .main-content p {
+                padding: 10px;
+                line-height: 1.5;
+            }
+            h4 {
+                font-size: 15px;
+                margin: 15px 0;
+            }
+            .cards {
+                display: block;
+                justify-content: center;
+            }
+            .box {
+                width: 45%;
+                margin-left: 30px;
+                margin-top: 20px;
+                padding: 15px;
+            }
+            .box_para {
+                text-align: justify;
+                padding: 0 10px 10px;
+                line-height: 1.5;
+            }
+        }
+        
+        @media (max-width: 800px) {
+            .show-btn,
+            .hide-btn {
+                display: block;
+            }
+            .menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background-color: black;
+                text-align: center;
+                padding: 80px 0;
+                transition: .7s;
+                line-height: normal;
+            }
+            #chk:checked~.menu {
+                right: 0;
+            }
+            .menu li {
+                display: block;
+                padding: 5px 0;
+            }
+            .menu li a {
+                display: block;
+            }
+            .hide-btn {
+                position: absolute;
+                right: 20px;
+                top: 10px;
+            }
+            #top-section {
+                padding: 85px 20px 0;
+            }
+            #top-section h1 {
+                font-size: 2.5rem;
+                left: 50px;
+                top: 105px;
+            }
+            #team {
+                padding: 20px;
+                justify-content: center;
+            }
+            .heading {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 50px;
+            }
+            .circle-outer {
+                margin: auto;
+            }
+            .circle img {
+                float: left;
+                height: 32%;
+                width: 32%;
+                margin-left: 5rem;
+                margin-top: 40px;
+                padding: 7px;
+                border-radius: 100%;
+            }
+            #about {
+                width: 100%;
+                padding: 20px;
+            }
+            .main-content {
+                width: 100%;
+                height: 500px;
+                background-color: lightslategray;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-size: 20px;
+                overflow: hidden;
+            }
+            .article img {
+                width: 100%;
+                height: 153px;
+                margin-top: 20px;
+                justify-content: center;
+                align-items: center;
+            }
+            .article h1 {
+                position: absolute;
+                right: 18%;
+                padding: 25px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .main-content p {
+                padding: 10px;
+                line-height: 1.5;
+            }
+            h4 {
+                font-size: 15px;
+                margin: 10px;
+            }
+            .box_img {
+                width: 100%;
+                border-radius: 9px;
+            }
+            .cards {
+                display: block;
+                justify-content: center;
+            }
+            .box {
+                width: 40%;
+                background-color: lightblue;
+                margin-left: 25px;
+                margin-top: 20px;
+                padding: 15px;
+                float: left;
+                border-radius: 9px;
+            }
+            .box_a {
+                color: white;
+                background-color: #cf1b1b;
+                padding: 12px;
+                text-align: center;
+                border-radius: 9px;
+            }
+            .box_para {
+                padding: 0 10px 10px;
+                line-height: 1.5;
+            }
+        }
+        
+        @media (max-width: 625px) {
+            .container {
+                min-width: 320px;
+            }
+            .show-btn,
+            .hide-btn {
+                display: block;
+            }
+            .menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background-color: black;
+                text-align: center;
+                padding: 80px 0;
+                transition: .7s;
+                line-height: normal;
+            }
+            #chk:checked~.menu {
+                right: 0;
+            }
+            .menu li {
+                display: block;
+                padding: 5px 0;
+            }
+            .menu li a {
+                display: block;
+            }
+            .hide-btn {
+                position: absolute;
+                right: 20px;
+                top: 10px;
+            }
+            #top-section {
+                padding: 85px 20px 0;
+            }
+            #top-section img {
+                width: 100%;
+            }
+            #top-section h1 {
+                position: absolute;
+                font-size: 2rem;
+                color: whitesmoke;
+                left: 50px;
+                top: 105px;
+            }
+            #team {
+                padding: 20px;
+            }
+            .heading {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 50px;
+            }
+            .circle-outer {
+                margin: auto;
+                float: none;
+            }
+            .circle img {
+                display: block;
+                float: none;
+                height: 60%;
+                width: 60%;
+                margin: 20px auto;
+                padding: 7px;
+                border-radius: 100%;
+            }
+            #about {
+                width: 100%;
+                padding: 20px;
+            }
+            .main-content {
+                width: 100%;
+                height: 500px;
+                background-color: lightslategray;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-size: 20px;
+                overflow: hidden;
+            }
+            .article img {
+                width: 100%;
+                height: 153px;
+                margin-top: 20px;
+                justify-content: center;
+                align-items: center;
+            }
+            .article h1 {
+                position: absolute;
+                right: 18%;
+                padding: 25px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .main-content p {
+                padding: 10px;
+                line-height: 1.5;
+            }
+            h4 {
+                font-size: 20px;
+                margin: 10px;
+            }
+            .box_img {
+                width: 100%;
+                border-radius: 9px;
+            }
+            .cards {
+                display: block;
+                margin: auto;
+            }
+            .box {
+                float: none;
+                width: 330px;
+                background-color: lightblue;
+                margin: 20px auto;
+                padding: 15px;
+                border-radius: 9px;
+            }
+            .box_a {
+                color: white;
+                background-color: #cf1b1b;
+                padding: 12px;
+                text-align: center;
+                border-radius: 9px;
+            }
+            .box_para {
+                padding: 0 10px 10px;
+                line-height: 2;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- nav bar break point at 800px to 1199
+    for team members - 2 in each row-break point at 800 same with technologies -->
+        <!-- below 800px about us section is in row wise  -->
+        <!-- below 625 all images and technologies cards are single in a row -->
+        <div class="header">
+            <input type="checkbox" id="chk">
+            <label for="chk" class="show-btn">
+                <i class="fa fa-bars"></i>
+            </label>
+            <!-- <h2>Practical-9</h2> -->
+            <ul class="menu">
+                <li><a href="#top-section">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#tech">Technologies</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <label for="chk" class="hide-btn">
+                    <i class="fa fa-times"></i>
+                </label>
+            </ul>
+
+        </div>
+
+
+        <div id="top-section">
+            <h1>Practical-8</h1>
+            <img src="banner.jpg" alt="top-image">
+
+        </div>
+        <div id="team">
+            <div class="heading">
+                <b> Team Members </b>
+            </div>
+            <div class="circle-outer">
+                <div class="circle"><img src="1.png" alt="1-img"></div>
+                <div class="circle"><img src="2.png" alt="2-img"></div>
+                <div class="circle"><img src="3.png" alt="3-img"></div>
+                <div class="circle"><img src="4.png" alt="4-img"></div>
+            </div>
+        </div>
+        <div id="about">
+            <div class=heading>
+                <b> About Us</b>
+            </div>
+            <div class="main-content">
+                <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio debitis quo sed praesentium inventore quidem natus cum, nesciunt modi laboriosam earum enim saepe delectus blanditiis neque porro voluptatum excepturi nobis iste libero rem
+                    sapiente incidunt? Ea voluptate id molestiae, nam nostrum tenetur temporibus. Qui laboriosam, placeat earum, architecto laborum libero totam nostrum vero, ut corrupti autem! Doloremque iure sit impedit suscipit, voluptatum eos architecto,
+                    delectus in ex autem quibusdam ipsam ducimus velit a omnis, amet excepturi iste ad incidunt animi exercitationem explicabo tempore sed. Nisi repudiandae odio consequatur molestiae inventore dignissimos culpa aliquam quia error, delectus
+                    consequuntur temporibus nostrum rerum officia dolorum possimus velit beatae? Exercitationem est officiis quod doloribus neque commodi aspernatur ut doloremque sit itaque maxime sunt voluptates quisquam nihil, eius esse. Ipsam?
+                </p>
+            </div>
+            <div class="right-container">
+                <div class="article">
+                    <h1>Project-1</h1>
+                    <img src="p1.jpg" alt="p1">
+                </div>
+                <div class="article">
+                    <h1>Project-2</h1>
+                    <img src="p2.jpeg" alt="p2">
+                </div>
+                <div class="article">
+                    <h1>Project-3</h1>
+                    <img src="p3.jpg" alt="p3">
+                </div>
+            </div>
+
+        </div>
+        <div id="tech">
+            <div class=heading>
+                <b> Technologies used</b>
+            </div>
+            <div class="cards">
+                <div class="box">
+                    <img class="box_img" src="html2.jpg" alt="html-image">
+                    <h4>Introduction to HTML</h4>
+                    <p class="box_para">Hypertext Markup Language (HTML) is the standard markup language for documents, building blocks of HTML pagesdesigned to be displayed in a web browser.HTML elements are the building blocks of pages.embedded into the rendered page.</p>
+                    <a href="HTML.html" target="_blank">
+                        <div class="box_a">
+                            Read More
+                        </div>
+                    </a>
+
+                </div>
+                <div class="box">
+                    <img class="box_img" src="css2.jpg" alt="css-image">
+                    <h4>Introduction to CSS</h4>
+                    <p class="box_para">Cascading Style Sheets (CSS), cornerstone technology is a style sheet language used for describing the presentation of a document written in a markup language like HTML.CSS is designed to enable the styling design.designed to enable the separation of presentation.</p>
+                    <a href="css.html" target="_blank">
+                        <div class="box_a">
+                            Read More
+                        </div>
+                    </a>
+
+                </div>
+                <div class="box">
+                    <img class="box_img" src="javascript2.jpg" alt="javascript-image">
+                    <h4>Introduction to JavaScript</h4>
+                    <p class="box_para">JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax,dynamic typing, prototype-based object-orientation,and first-class.</p>
+                    <a href="javascript.html" target="_blank">
+                        <div class="box_a">
+                            Read More
+                        </div>
+                    </a>
+
+                </div>
+                <div class="box">
+                    <img class="box_img" src="bootstrap2.png" alt="bootstrap-image">
+                    <h4>Introduction to BootStrap</h4>
+                    <p class="box_para">Bootstrap is a web framework that focuses on simplifying the development of informative web pages. The primary purpose of adding it is to apply bootstrap's choices of color, size, font and layout.It also comes with plugin. The purpose of adding is to apply bootstrap's choices of color.</p>
+                    <a href="bootstrap.html" target="_blank">
+                        <div class="box_a">
+                            Read More
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="contact">
+            <div class="heading">
+                <b>Contact</b>
+            </div>
+            <div class="bottom-container">
+                <p>Practical-9 </p>
+                <a class="a1" href="#top-section">Back to top</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
