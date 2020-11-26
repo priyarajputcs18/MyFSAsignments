@@ -26,6 +26,8 @@ function checkInput(){
     const password1Value = password1.value.trim();
     const password2Value = password2.value.trim();
 
+// FOR USERNAME VALIDATION
+
     if(usernameValue ===''){
         showError(username,"Username cannot be empty");
     }
@@ -35,6 +37,8 @@ function checkInput(){
     else{
         showSuccess(username);
     }
+
+// FOR EMAIL ID VALIDATION
 
     if(emailValue ===''){
         showError(email,"Email ID cannot be empty");
@@ -46,12 +50,16 @@ function checkInput(){
         showSuccess(email);
     }
 
+// FOR PASSWORD1 VALIDATION
+
     if(password1Value ===''){
         showError(password1,"Password1 cannot be blank");
     }
     else{
         showSuccess(password1);
     }
+
+// FOR PASSWORD2 VALIDATION
 
     if(password2Value ===''){
         showError(password2,"Password2 cannot be blank");
